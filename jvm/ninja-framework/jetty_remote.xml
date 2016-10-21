@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure_9_0.dtd">
+
+<Configure id="Server" class="org.eclipse.jetty.server.Server">
+  <Arg name="threadpool">
+  <New id="threadpool" class="org.eclipse.jetty.util.thread.QueuedThreadPool">
+    <Arg type="java.lang.Integer" name="maxThreads">128</Arg>
+    <Arg type="java.lang.Integer" name="minThreads">128</Arg>
+    <Arg type="java.lang.Integer" name="idleTimeout">60000</Arg>
+    <Set name="detailedDump">false</Set>
+  </New>
+  </Arg>
+  <Call name="addConnector">
+    <Arg>
+      <New class="org.eclipse.jetty.server.ServerConnector">
+        <Arg name="server"><Ref refid="Server" /></Arg>
+        <Arg name="factories">
+          <Array type="org.eclipse.jetty.server.ConnectionFactory">
+            <Item>
+              <New class="org.eclipse.jetty.server.HttpConnectionFactory">
+                <Arg name="config"><Ref refid="httpConfig" /></Arg>
+              </New>
+            </Item>
+          </Array>
+        </Arg>
+        <Set name="host">192.36.157.174</Set>
+        <Set name="port">8080</Set>
+      </New>
+    </Arg>
+  </Call>
+
+</Configure>

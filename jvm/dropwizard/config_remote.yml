@@ -1,0 +1,10 @@
+server:
+  type: default
+  maxThreads: 128
+  minThreads: 128
+  requestLog:
+      appenders: []
+  applicationConnectors:
+    - type: http
+      port: 8080
+      bindHost: 192.36.157.174

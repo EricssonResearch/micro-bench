@@ -1,0 +1,6 @@
+server:
+  type: default
+  maxThreads: 128
+  minThreads: 128
+  requestLog:
+    appenders: []
